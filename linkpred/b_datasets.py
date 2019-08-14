@@ -26,10 +26,10 @@ def giant_component_bp(x):
 
 def load_elegans_data():
     
-    connectome = np.array(pd.read_csv('chemical_connectome.csv', header=None))
-    nodes1 = np.array(pd.read_csv('Neurons-NT_allcategories.csv', header=None))
-    nodes2 = np.array(pd.read_csv('NT-NR_allcategories.csv', header=None))
-    nodes3 = np.array(pd.read_csv('NR-Neurons_wc_NEWORDER_mu.csv', header=None))
+    connectome = np.array(pd.read_csv('../data/elegans/chemical_connectome.csv', header=None))
+    nodes1 = np.array(pd.read_csv('../data/elegans/Neurons-NT_allcategories.csv', header=None))
+    nodes2 = np.array(pd.read_csv('../data/elegans/NT-NR_allcategories.csv', header=None))
+    nodes3 = np.array(pd.read_csv('../data/elegans/NR-Neurons_wc_NEWORDER_mu.csv', header=None))
     
     # lists of the nodes in each class
     source_list = np.concatenate((connectome[:,0], nodes1[:,0]))
@@ -84,7 +84,7 @@ def load_elegans_data():
 
 
 def load_gpcr_data():
-    data = np.array(pd.read_csv('bind_orfhsa_drug_gpcr.txt', delim_whitespace=True, header=None))
+    data = np.array(pd.read_csv('../data/cannistraci/bind_orfhsa_drug_gpcr.txt', delim_whitespace=True, header=None))
 
     sources = np.unique(data[:,0])
     targets = np.unique(data[:,1])
@@ -105,7 +105,7 @@ def load_gpcr_data():
 
 
 def load_enzyme_data():
-    data_e = np.array(pd.read_csv('bind_orfhsa_drug_e.txt', delim_whitespace=True, header=None))
+    data_e = np.array(pd.read_csv('../data/cannistraci/bind_orfhsa_drug_e.txt', delim_whitespace=True, header=None))
     
     sources_e = np.unique(data_e[:,0])
     targets_e = np.unique(data_e[:,1])
@@ -125,7 +125,7 @@ def load_enzyme_data():
     return x_e
 
 def load_ion_channel_data():
-    data_ic = np.array(pd.read_csv('bind_orfhsa_drug_ic.txt', delim_whitespace=True, header=None))
+    data_ic = np.array(pd.read_csv('../data/cannistraci/bind_orfhsa_drug_ic.txt', delim_whitespace=True, header=None))
 
     sources_ic = np.unique(data_ic[:,0])
     targets_ic = np.unique(data_ic[:,1])
